@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div direction control</title>
+<style>
+#puppet {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    transition: all 1s ease;
+    background-color: cadetblue;
+}
+</style>
+</head>
+<body id="main">
+
+    <div id="puppet"></div>
+
+    <script>
+window.onload = function() {
+    let main = document.getElementById("main");
+
+    
+    let puppet = document.getElementById("puppet");
+    let positionX = 0, positionY = 0;
+    let timer;
+
+    main.onkeyup = function(e) {
+        
+            if (e.keyCode == 37) { // to the left
+                
+                timer = setTimeout(function() {
+                    positionX -= 100;
+                    puppet.style.left = positionX + "px";
+                },100)
+            }
+            if (e.keyCode == 38) { // to the top
+                
+                timer = setTimeout(function() {
+                    positionY -= 100;
+                    puppet.style.top = positionY + "px";
+                },100)
+            }
+            if (e.keyCode == 39) { // to the right
+                
+                timer = setTimeout(function() {
+                    positionX += 100;
+                    puppet.style.left = positionX + "px";
+                },100)
+            }
+            if (e.keyCode == 40) {  // to the bottom
+                
+                timer = setTimeout(function() {
+                    positionY += 100;
+                    puppet.style.top = positionY + "px";
+                },100)
+            }
+        }
+    
+}
+    </script>
+</body>
+</html>

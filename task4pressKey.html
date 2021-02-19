@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body id="main" style="padding: 50px;">
+    <p>Press <kbd>Ctrl</kbd> + <kbd>S</kbd></p>
+    <p>Press <kbd>Ctrl</kbd> + <kbd>A</kbd></p>
+    <p>Press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd></p>
+    <div></div>
+
+    <script>
+        window.addEventListener("load", init, false);
+        let div = document.getElementsByTagName('div')[0];
+        function init() {
+            
+            let main = document.getElementById("main");
+            main.onkeydown = keyHandler;
+        }
+        function keyHandler(e) {
+            // alert(e.keyCode);
+            if ((e.keyCode == 83) && e.ctrlKey) {
+                div.innerHTML="Saved.";
+            }
+            if (e.ctrlKey && (e.keyCode == 65)) {
+                div.innerHTML="Everything selected.";
+            }
+            if (e.ctrlKey && e.shiftKey && (e.keyCode == 83)) {
+                div.innerHTML="Everything saved.";
+            }
+        }
+        // || (e.keyCode == 115)
+        // (e.ctrl == true)
+    </script>
+</body>
+</html>

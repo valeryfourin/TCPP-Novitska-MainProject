@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get discount</title>
+    <style>
+        [type="button"] {
+    margin: 10px;
+    width: 100px;
+    height: 30px;
+    background-color: #ffffff;
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease;
+    transition: all 1s ease;
+    position: relative;
+    display: inline-block;
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    outline: none;
+    background: #ffffff;
+    border-radius: 50px;
+    border: none;
+}
+[type="button"]:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    -webkit-box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 50px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+[type="button"]:hover {
+    -webkit-box-shadow: -2px 5px 25px -5px rgba(0, 0, 0, 0.89);
+    box-shadow: -2px 5px 25px -5px rgba(0, 0, 0, 0.89);
+}
+
+[type="button"]:hover:after {
+    left: 0;
+    width: 100%;
+}
+
+[type="button"]:active {
+    top: 2px;
+}
+</style>
+</head>
+<body>
+    <input id="discount" type="button" value="Get discount!">
+
+    <script>
+        window.addEventListener("load", init, false);
+
+        function init() {
+            let discount = document.getElementById("discount");
+            discount.addEventListener("mouseover", escape)
+        }
+
+        function escape() {
+                let x = window.innerWidth;
+                let y = window.innerHeight;
+                
+                discount.style.left = `${getRandom(1,x-200)}px`;
+                discount.style.top = `${getRandom(1,y-200)}px`;
+
+        }
+        function getRandom(min, max)
+            {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+    </script>
+    
+</body>
+</html>
